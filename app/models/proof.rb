@@ -3,4 +3,5 @@ class Proof < ActiveRecord::Base
   has_attached_file :content
 
   do_not_validate_attachment_file_type :content
+  validates_presence_of :detail
 end

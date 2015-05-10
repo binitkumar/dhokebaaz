@@ -1,4 +1,10 @@
 = nested_form_for @dhokebaaz do |f|
+  - if @dhokebaaz.errors.any?
+    .row.red
+      Below errors prevented this entry from getting added.
+      %ul
+        - @dhokebaaz.errors.full_messages.each do |msg|
+          %li= msg
   .row.bottom-line
     .form-group
       %label.col-sm-2.control-label Narrate your story

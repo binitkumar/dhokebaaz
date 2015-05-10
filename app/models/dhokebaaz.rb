@@ -7,6 +7,8 @@ class Dhokebaaz < ActiveRecord::Base
   has_attached_file :profile_image, default_url: 'dhokebaaz.jpg'
   validates_attachment_content_type :profile_image, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
 
+  validates_presence_of :dhokebaaz_name, :story
+
   accepts_nested_attributes_for :proofs
 
   def poster_name

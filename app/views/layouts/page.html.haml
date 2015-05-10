@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    / Add Your favicon here
+    / <link rel="icon" href="img/favicon.ico">
+    %title Dhokebaaz - let dhokebaazs get unmasked
+    = stylesheet_link_tag    'page', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'page', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body.pace-done.skin-1.boxed-layout
+    = render "notify"
+    = render "navigation"
+    = yield
+    = render "footer"

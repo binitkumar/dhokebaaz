@@ -1,0 +1,131 @@
+#inSlider.carousel.slide.carousel-fade{"data-ride" => "carousel"}
+  %ol.carousel-indicators
+    %li.active{"data-slide-to" => "0", "data-target" => "#inSlider"}
+    %li{"data-slide-to" => "1", "data-target" => "#inSlider"}
+  .carousel-inner{:role => "listbox"}
+    .item.active
+      .container
+        .carousel-caption.pull-right
+          %h1
+            Got cheated by
+            %br/
+            person, insitution, organization
+            %br/
+            or any other..
+          %p Expose them. Save others from that Dhokebaaz!
+      / Set background for slide in css
+      .header-back.one
+    .item
+      .container
+        .carousel-caption.blank
+          %h1
+            Unveil
+            %br/
+            the darkest side.
+          %p Remove the mask of Dhokhebaaz..
+      / Set background for slide in css
+      .header-back.two
+  %a.left.carousel-control{"data-slide" => "prev", :href => "#inSlider", :role => "button"}
+    %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+    %span.sr-only Previous
+  %a.right.carousel-control{"data-slide" => "next", :href => "#inSlider", :role => "button"}
+    %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+    %span.sr-only Next
+%section#features.container.services
+  .row
+    .col-sm-3
+      %h2 Help others
+      %p You can help people to recognize the cheaters and save them. Let's clean the society.
+    .col-sm-3
+      %h2 Need help
+      %p You can ask suggestions from others on fraud done to you and ways to handle that.
+    .col-sm-3
+      %h2 Teach dhokhebaazs a lesson
+      %p Group with similar people who got cheated by the same cheater and teach the cheater a lesson.
+    .col-sm-3
+      %h2 List Dhokebaazs
+      %p Let's build up a one touch database where people can search before trusting any cheater.
+%section#team.white-section
+  .container
+    .row.m-b-lg
+      .col-lg-12.text-center
+        .navy-line
+        %h1 How to share details of a cheater
+        %p Its very simple and quick!.
+    .row
+      .col-lg-8.col-lg-offset-2.text-center.m-t-lg.m-b-lg
+        %p Want to share details of any cheating incident or any cheater. You can do it with or without sharing your identity.
+        %p Just go to our "ADD A DHOKEBAAZ" section. Add details as much you have available. Most of fields are optional there.
+        %p You can also connect an email address where we shall keep you updated about viewers, comments and other people who got cheated by the same cheater.
+        %p Any details about you shall be displayed publicly only if you request us to do so.
+    .jumbotron
+      = link_to "Suggest a Dhokebaaz now", new_dhokebaaz_path, class: 'btn btn-primary center', style: 'width: 100%;'
+/
+  section id="testimonials" class="navy-section testimonials">
+  
+  <div class="container">
+  <div class="row">
+  <div class="col-lg-12 text-center wow zoomIn">
+  <i class="fa fa-comment big-icon"></i>
+  <h1>
+  Our motive
+  </h1>
+  <div class="testimonials-text">
+  <i>
+  With Dhokebaaz.net we are putting an attemt to expose the cheater and educate people about the cheating incidents going around their neighbourhood which mostly goes unhead.
+  We are also trying to build a society where nobody dares to build cheating is business.
+  </i>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  </section
+/
+  section id="contact" class="gray-section contact">
+  <div class="container">
+  <div class="row m-b-lg">
+  <div class="col-lg-12 text-center">
+  <div class="navy-line"></div>
+  <h1>Contact Us</h1>
+  <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+  </div>
+  </div>
+  <div class="row m-b-lg">
+  <div class="col-lg-3 col-lg-offset-3">
+  <address>
+  <strong><span class="navy">Company name, Inc.</span></strong><br/>
+  795 Folsom Ave, Suite 600<br/>
+  San Francisco, CA 94107<br/>
+  <abbr title="Phone">P:</abbr> (123) 456-7890
+  </address>
+  </div>
+  <div class="col-lg-4">
+  <p class="text-color">
+  Consectetur adipisicing elit. Aut eaque, totam corporis laboriosam veritatis quis ad perspiciatis, totam corporis laboriosam veritatis, consectetur adipisicing elit quos non quis ad perspiciatis, totam corporis ea,
+  </p>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-lg-12 text-center">
+  <a href="mailto:test@email.com" class="btn btn-primary">Send us mail</a>
+  <p class="m-t-sm">
+  Or follow us on social platform
+  </p>
+  <ul class="list-inline social-icon">
+  <li><a href="#"><i class="fa fa-twitter"></i></a>
+  </li>
+  <li><a href="#"><i class="fa fa-facebook"></i></a>
+  </li>
+  <li><a href="#"><i class="fa fa-linkedin"></i></a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+  <p><strong>&copy; 2015 Company Name</strong><br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+  </div>
+  </div>
+  </div>
+  </section

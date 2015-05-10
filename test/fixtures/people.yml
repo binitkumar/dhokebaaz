@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  story: MyText
+  incident_time: MyString
+  dhokebaaz_name: MyString
+  address: MyText
+  other_details: MyText
+  fb_profile_url: MyText
+  post_as_anonymous: false
+  name: MyString
+  email: MyString
+  name_visible_to_public: false
+  recive_update_on_comments: false
+  recive_messages: false
+
+two:
+  story: MyText
+  incident_time: MyString
+  dhokebaaz_name: MyString
+  address: MyText
+  other_details: MyText
+  fb_profile_url: MyText
+  post_as_anonymous: false
+  name: MyString
+  email: MyString
+  name_visible_to_public: false
+  recive_update_on_comments: false
+  recive_messages: false

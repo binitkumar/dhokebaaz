@@ -1,0 +1,175 @@
+.wrapper.wrapper-content
+  .row.border-bottom.white-bg.page-heading
+    %h2 Dhokebaaz Profile
+  .row.animated.fadeInRight
+    .col-md-4
+      .ibox.float-e-margins
+        .ibox-title
+          %h5 Image
+        %div
+          .ibox-content.no-padding.border-left-right
+            %img.img-responsive{:alt => "image", :src => @dhokebaaz.profile_image.url}/
+          .ibox-content.profile-content
+            %h4
+              %strong= @dhokebaaz.dhokebaaz_name
+            %p
+              %i.fa.fa-map-marker
+              = @dhokebaaz.address
+            .row
+              %h5 Tags:
+              %ul.tag-list{:style => "padding: 0"}
+                %li
+                  %a{:href => ""}
+                    %i.fa.fa-tag
+                    Zender
+                %li
+                  %a{:href => ""}
+                    %i.fa.fa-tag
+                    Lorem ipsum
+                %li
+                  %a{:href => ""}
+                    %i.fa.fa-tag
+                    Passages
+                %li
+                  %a{:href => ""}
+                    %i.fa.fa-tag
+                    Variations
+            %h5
+              Proofs
+            %p
+            %ul
+              - @dhokebaaz.proofs.each do |prof|
+                %li= link_to "File", prof.content.url
+            %h5
+              Contact victim
+              %h5
+                .user-button
+                  .row
+                    .col-md-6
+                      %button.btn.btn-primary.btn-sm.btn-block{:type => "button"}
+                        %i.fa.fa-envelope
+                        Send Message
+    .col-md-8
+      .ibox.float-e-margins
+        .ibox-title
+          %h5 Details
+        .ibox-content
+          %div
+            .feed-activity-list
+              .feed-element
+                %a.pull-left{:href => "#"}
+                  %img.img-circle{:alt => "image", :src => "/assets/a1.jpg"}/
+                .media-body
+                  %small.pull-right.text-navy= "#{time_ago_in_words(@dhokebaaz.created_at)} ago"
+                  %strong= @dhokebaaz.visible_name
+                  claimed following
+                  %br/
+                  %small.text-muted= @dhokebaaz.created_at.strftime("%d/%m/%Y  %M:%S")
+                  %br/
+                  %p= @dhokebaaz.story.html_safe
+                  .actions
+                    %a.btn.btn-xs.btn-white
+                      %i.fa.fa-thumbs-up
+                      Like
+                    %a.btn.btn-xs.btn-danger
+                      %i.fa.fa-heart
+                      Love
+                  .actions.pull-right
+                    Found it derogatory to you?
+                    %a.btn.btn-danger
+                      %i.fa.fa-user-times
+                      Object
+          .row
+            .col-lg-5
+              %dl.dl-horizontal
+                %dt Created by:
+                %dd= @dhokebaaz.visible_name
+                %dt Comments:
+                %dd 162
+                %dt FB Shares:
+                %dd 0
+            #cluster_info.col-lg-7
+              %dl.dl-horizontal
+                %dt Created:
+                %dd 10.07.2014 23:36:57
+                %dt Participants:
+                %dd.project-people
+                  %a{:href => "#"}
+                    %img.img-circle{:alt => "image", :src => "/assets/a3.jpg"}/
+                  %a{:href => "#"}
+                    %img.img-circle{:alt => "image", :src => "/assets/a1.jpg"}/
+                  %a{:href => "#"}
+                    %img.img-circle{:alt => "image", :src => "/assets/a2.jpg"}/
+                  %a{:href => "#"}
+                    %img.img-circle{:alt => "image", :src => "/assets/a4.jpg"}/
+                  %a{:href => "#"}
+                    %img.img-circle{:alt => "image", :src => "/assets/a5.jpg"}/
+    .col-md-8
+      .ibox.float-e-margins
+        .ibox-title
+          %h5 Comments
+        .ibox-content
+          %div
+            .feed-activity-list
+              .feed-element
+                %a.pull-left{:href => "#"}
+                  %img.img-circle{:alt => "image", :src => "/assets/a1.jpg"}/
+                .media-body
+                  %h3 Comment:
+                  = form_for @dhokebaaz.comments.build do |f|
+                    = f.hidden_field :dhokebaaz_id, value: @dhokebaaz.id
+                    = f.text_area :message, class: 'form-control submit-on-enter', placeholder: 'Press enter to submit'
+              .feed-element
+                %a.pull-left{:href => "#"}
+                  %img.img-circle{:alt => "image", :src => "/assets/a1.jpg"}/
+                .media-body
+                  %small.pull-right.text-navy 1m ago
+                  %strong Sandra Momot
+                  started following
+                  = succeed "." do
+                    %strong Monica Smith
+                  %br/
+                  %small.text-muted Today 4:21 pm - 12.06.2014
+                  .actions
+                    %a.btn.btn-xs.btn-white
+                      %i.fa.fa-thumbs-up
+                      Like
+                    %a.btn.btn-xs.btn-danger
+                      %i.fa.fa-heart
+                      Love
+              .feed-element
+                %a.pull-left{:href => "#"}
+                  %img.img-circle{:alt => "image", :src => "/assets/profile.jpg"}/
+                .media-body
+                  %small.pull-right 5m ago
+                  %strong Monica Smith
+                  posted a new blog.
+                  %br/
+                  %small.text-muted Today 5:60 pm - 12.06.2014
+              .feed-element
+                %a.pull-left{:href => "#"}
+                  %img.img-circle{:alt => "image", :src => "/assets/a2.jpg"}/
+                .media-body
+                  %small.pull-right 2h ago
+                  %strong Mark Johnson
+                  posted message on
+                  %strong Monica Smith
+                  site.
+                  %br/
+                  %small.text-muted Today 2:10 pm - 12.06.2014
+                  .well
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                  .pull-right
+                    %a.btn.btn-xs.btn-white
+                      %i.fa.fa-thumbs-up
+                      Like
+                    %a.btn.btn-xs.btn-white
+                      %i.fa.fa-heart
+                      Love
+                    %a.btn.btn-xs.btn-primary
+                      %i.fa.fa-pencil
+                      Message
+            %button.btn.btn-primary.btn-block.m
+              %i.fa.fa-arrow-down
+              Show More

@@ -1,0 +1,19 @@
+.navbar-wrapper
+  %nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+    .container
+      .navbar-header.page-scroll
+        %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{:href => "/"} DHOKEBAAZ.net
+      #navbar.navbar-collapse.collapse
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            %a.page-scroll{:href => root_path} Home
+          %li
+            %a.page-scroll{:href => search_dhokebaazs_path, :title => "Find out a Dhokebaaz before you trust them"} Search
+          %li
+            %a.page-scroll{:href => new_dhokebaaz_path, :title => "You can list people who cheated you with or without disclosing your identity."} Add a DHOKEBAAZ
+          / li><a class="page-scroll" href="#contact" title="Have something to say to us?">Contact us</a></li

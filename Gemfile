@@ -46,3 +46,4 @@ gem 'nested_form'
 gem 'devise'
 gem 'chosen-rails'
 gem 'shareable'
+gem "recaptcha", :require => "recaptcha/rails"

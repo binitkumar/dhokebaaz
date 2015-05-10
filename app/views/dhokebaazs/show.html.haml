@@ -110,9 +110,9 @@
                     = image_tag(current_user.profile_image.url, class: 'img-circle', alt: 'image')                  
                 .media-body
                   %h3 Comment:
-                  = form_for @dhokebaaz.comments.build do |f|
+                  = form_for @comment do |f|
                     = f.hidden_field :dhokebaaz_id, value: @dhokebaaz.id
-                    = f.text_area :message, class: 'form-control submit-on-enter', placeholder: 'Press enter to submit'
+                    = f.text_area :message, class: 'form-control', placeholder: 'Express your views'
                     %br/
                     - if current_user
                       Post as anonymas
@@ -120,6 +120,10 @@
                     - else  
                       %br/
                       Comment shall be posted as anonymas if you are not logged in. After logging in to your account you can post with your account or choose to post as anonymas.
+                    %br/
+                    = recaptcha_tags ajax: true
+                    %br/
+                    = f.submit "Post", class: 'btn btn-success'
               - @dhokebaaz.comments.each do |comment|
                 - if comment.id
                   .feed-element

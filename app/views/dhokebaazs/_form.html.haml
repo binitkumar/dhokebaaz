@@ -102,6 +102,9 @@
         .col-sm-10
           = f.check_box :recive_messages
           Recieve messages from visitors (Your email shall not be visible)
+    .row
+      .form-group
+        = recaptcha_tags ajax: true
   .row
     .form-group
       .col-sm-4.col-sm-offset-2

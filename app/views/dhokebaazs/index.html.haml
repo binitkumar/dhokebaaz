@@ -4,33 +4,7 @@
   .row
     .col-md-12.no-padding
       .ibox.float-e-margins
-        .ibox-title
-          %h5 You have added..
         .ibox-content
           - @dhokebaazs.each do |dhokebaaz|
-            .row.just-bottom-line
-              .col-md-3
-                .thumbnail= link_to image_tag(dhokebaaz.profile_image.url, style: 'width: 250px; height: 150px'), dhokebaaz
-              .col-md-9
-                %h3= link_to dhokebaaz.full_name, dhokebaaz
-                .col-md-12.no-padding
-                  .col-md-3.no-padding
-                    %h5 City: #{dhokebaaz.city}
-                  .col-md-3.no-padding
-                    %h5 Zipcode: #{dhokebaaz.zipcode}
-                .col-md-12.no-padding
-                  .col-md-3.no-padding
-                    %h5 Like: 0
-                  .col-md-3.no-padding
-                    %h5 Loves: 123
-                .col-md-12.no-padding
-                  .col-md-3.no-padding
-                    %h5 Suggport to claim: 0
-                  .col-md-3.no-padding
-                    %h5 Comments: 123
-                - if current_user && current_user.dhokebaazs.include?(dhokebaaz)
-                  .col-md-12.no-padding
-                    .col-md-3.no-padding
-                      = link_to "Edit", edit_dhokebaaz_path(dhokebaaz), class: 'btn btn-warning'
-                    .col-md-3.no-padding
-                      = link_to "Delete", dhokebaaz, class: 'btn btn-danger', method: :delete, "data-confirm" => "Are you sure to remove this entry"
+            = render "dhokebaaz", dhokebaaz: dhokebaaz
+          = "Nobody added by you yet." if @dhokebaazs.length == 0

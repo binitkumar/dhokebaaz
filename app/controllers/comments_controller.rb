@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   # POST /people.json
   def create
     @comment = Comment.new(comment_params)
-
+    @comment.user_id = current_user.id if current_user
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment.dhokebaaz, notice: 'Profile was successfully created.' }

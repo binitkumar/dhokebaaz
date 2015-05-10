@@ -17,7 +17,7 @@ class Dhokebaaz < ActiveRecord::Base
     if self.post_as_anonymous || self.user.nil?
       "profile_picture.png"
     else
-
+      self.user.profile_image.url
     end
   end
 

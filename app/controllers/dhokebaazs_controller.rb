@@ -3,8 +3,12 @@ class DhokebaazsController < ApplicationController
   before_action :set_tags, only: [:create, :update]
   layout 'page'
 
-  def index
+  def search
     @dhokebaazs = Dhokebaaz.all
+  end
+
+  def index
+    @dhokebaazs = current_user.dhokebaazs
   end
 
   # GET /people/1
@@ -26,6 +30,7 @@ class DhokebaazsController < ApplicationController
   # POST /people.json
   def create
     @dhokebaaz = Dhokebaaz.new(dhokebaaz_params)
+    @dhokebaaz.user_id = current_user.id if current_user
 
     respond_to do |format|
       if @dhokebaaz.save

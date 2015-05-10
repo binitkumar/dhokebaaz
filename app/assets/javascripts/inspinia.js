@@ -23,6 +23,26 @@ ready = function () {
       }
     });
 
+    var checked = $(this).is(":checked");
+
+    if (checked == true) {
+      $(".user-details").hide(); 
+    } else {
+      $(".user-details").show(); 
+    }
+
+    $("#post-as-anonymous-checkbox").on("click", function(){
+      var checked = $(this).is(":checked");
+
+      if (checked == true) {
+        $(".user-details").hide(); 
+      } else {
+        $(".user-details").show(); 
+      }
+    })
+
+    $('.chosen-select').chosen({allow_single_deselect: true, 
+      no_results_text: 'No results matched', width: '200px' })
 };
 
 $(document).ready(ready);

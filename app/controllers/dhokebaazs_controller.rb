@@ -1,9 +1,10 @@
 class DhokebaazsController < ApplicationController
   before_action :set_dhokebaaz, only: [:show, :edit, :update, :destroy]
+  before_action :set_tags, only: [:create, :update]
   layout 'page'
 
   def index
-    @people = Dhokebaaz.all
+    @dhokebaazs = Dhokebaaz.all
   end
 
   # GET /people/1
@@ -69,6 +70,10 @@ class DhokebaazsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dhokebaaz_params
-      params.require(:dhokebaaz).permit(:story, :incident_time, :dhokebaaz_name, :last_name, :address, :other_details, :fb_profile_url, :post_as_anonymous, :name, :email, :name_visible_to_public, :recive_update_on_comments, :recive_messages, :profile_image, :city, :zipcode, :proofs_attributes => [:id, :content, :detail, :_destroy])
+      params.require(:dhokebaaz).permit(:story, :incident_time, :dhokebaaz_name, :last_name, :address, :other_details, :fb_profile_url, :post_as_anonymous, :name, :email, :name_visible_to_public, :recive_update_on_comments, :recive_messages, :profile_image, :city, :zipcode, :tags, :proofs_attributes => [:id, :content, :detail, :_destroy])
+    end
+
+    def set_tags
+      params[:dhokebaaz][:tags] = params[:dhokebaaz][:tags].join(",").gsub(/^,/, "")
     end
 end

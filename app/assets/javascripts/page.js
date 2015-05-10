@@ -21,3 +21,4 @@
 //= require ckeditor-jquery
 //= require_tree ./ckeditor
 //= require jquery_nested_form
+//= require chosen-jquery

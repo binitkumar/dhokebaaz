@@ -1,0 +1,55 @@
+.wrapper.wrapper-content
+  .row.border-bottom.white-bg.page-heading
+    %h2 Account details
+  .row
+    .col-md-6.col-md-offset-1
+      .ibox.float-e-margins
+        .ibox-content
+          %h2 Profile details
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+            = devise_error_messages!
+            .row.bottom-line
+              .field
+                = f.label :username
+                %br/
+                = f.text_field :username, autofocus: true, class: 'form-control'
+            .row.bottom-line
+              .field
+                = f.label :email
+                %br/
+                = f.email_field :email, class: 'form-control'
+              - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+                %div
+                  Currently waiting confirmation for: #{resource.unconfirmed_email}
+            .row.bottom-line
+              .field
+                = f.label :profile_image
+                %br/
+                = f.file_field :profile_image, class: 'form-control'
+            .row.bottom-line
+              .field
+                = f.label :password
+                %i (leave blank if you don't want to change it)
+                %br/
+                = f.password_field :password, autocomplete: "off", class: 'form-control'
+            .row.bottom-line
+              .field
+                = f.label :password_confirmation
+                %br/
+                = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+            .row.bottom-line
+              .field
+                = f.label :current_password
+                %i (we need your current password to confirm your changes)
+                %br/
+                = f.password_field :current_password, autocomplete: "off", class: 'form-control'
+              .actions
+                = f.submit "Update", class: 'btn btn-success'
+          %h3 Cancel my account
+          %p
+            Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'}
+            = link_to "Back", :back
+    .col-md-3
+      %h3 Profile image
+      .thumbnail
+        = image_tag(current_user.profile_image.url) 

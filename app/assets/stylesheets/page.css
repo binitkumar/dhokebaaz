@@ -15,5 +15,6 @@
  *= require font-awesome/css/font-awesome
  *= require toastr.min
  *= require page-style
+ *= require chosen
  *= require_self
  */

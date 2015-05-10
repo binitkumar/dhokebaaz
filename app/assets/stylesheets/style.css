@@ -786,3 +786,8 @@ fieldset[disabled] .btn-primary.active {
     font-size: 18px;
 		font-weight: bold;
 }
+.bottom-line {
+  padding-bottom: 25px;
+  border-bottom: 1px dashed gray;
+  padding-top: 10px;
+}

@@ -6425,6 +6425,10 @@ body.skin-3 {
     display: none;
   }
 }
+.just-bottom-line {
+  border-bottom: 1px dashed gray;
+  padding-top: 10px;
+}
 
 .bottom-line {
   padding-bottom: 25px;

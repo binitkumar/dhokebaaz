@@ -65,43 +65,43 @@
     .form-group
       %label.col-lg-2.control-label Tag with type of cheating
       .col-lg-10
-        %p.form-control-static email@example.com
+        %p.form-control-static= f.select :tags, options_for_select(["First", "Second"]),{}, {class: 'chosen-select', multiple: 'multiple'}
         %span.help-block.m-b-none Add his cheating type here. It shall help others to filter out
   .row.bottom-line  
     %h5 Post it as anonymous
-    = f.check_box :post_as_anonymous
+    = f.check_box :post_as_anonymous, id: 'post-as-anonymous-checkbox'
     %br/
     %br/
     Or you can share your details to get updates about viewers, comments and other people who got cheated or have been helped by you.
-    
-  .row.bottom-line
-    .form-group
-      %label.col-sm-2.control-label Name
-      .col-lg-10
-        = f.text_field :name, class: 'form-control', placeholder: 'Your name'
-        %span.help-block.m-b-none
-          Visible to public
-          = f.check_box :name_visible_to_public
-  .row.bottom-line
-    .form-group
-      %label.col-sm-2.control-label Email
-      .col-sm-10
-        = f.text_field :email, class: 'form-control', placeholder: 'Your email'
-        %span.help-block.m-b-none Your email shall not be visible
-        %span.help-block.m-b-none By putting your email you can get updates directly in your mailbox.
-        %span.help-block.m-b-none You can also modify this entry later if you add your email here.
-  .row.bottom-line
-    .form-group
-      %label.col-sm-2.control-label
-      .col-sm-10
-        = f.check_box :recive_update_on_comments
-        Recieve updates on comments
-  .row.bottom-line
-    .form-group
-      %label.col-sm-2.control-label
-      .col-sm-10
-        = f.check_box :recive_messages
-        Recieve messages from visitors (Your email shall not be visible)
+  .user-details  
+    .row.bottom-line
+      .form-group
+        %label.col-sm-2.control-label Name
+        .col-lg-10
+          = f.text_field :name, class: 'form-control', placeholder: 'Your name'
+          %span.help-block.m-b-none
+            Visible to public
+            = f.check_box :name_visible_to_public
+    .row.bottom-line
+      .form-group
+        %label.col-sm-2.control-label Email
+        .col-sm-10
+          = f.text_field :email, class: 'form-control', placeholder: 'Your email'
+          %span.help-block.m-b-none Your email shall not be visible
+          %span.help-block.m-b-none By putting your email you can get updates directly in your mailbox.
+          %span.help-block.m-b-none You can also modify this entry later if you add your email here.
+    .row.bottom-line
+      .form-group
+        %label.col-sm-2.control-label
+        .col-sm-10
+          = f.check_box :recive_update_on_comments
+          Recieve updates on comments
+    .row.bottom-line
+      .form-group
+        %label.col-sm-2.control-label
+        .col-sm-10
+          = f.check_box :recive_messages
+          Recieve messages from visitors (Your email shall not be visible)
   .row
     .form-group
       .col-sm-4.col-sm-offset-2

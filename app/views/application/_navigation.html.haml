@@ -16,4 +16,16 @@
             %a.page-scroll{:href => search_dhokebaazs_path, :title => "Find out a Dhokebaaz before you trust them"} Search
           %li
             %a.page-scroll{:href => new_dhokebaaz_path, :title => "You can list people who cheated you with or without disclosing your identity."} Add a DHOKEBAAZ
-          / li><a class="page-scroll" href="#contact" title="Have something to say to us?">Contact us</a></li
+          - if current_user
+            %li.dropdown
+              = link_to "Account", "#", :class=> "dropdown-toggle count-info", "data-toggle" => "dropdown", "aria-expanded" => "false"
+              %ul.dropdown-menu.drowdown-alerts
+                %li= link_to "My Profile", edit_user_registration_path
+                %li.devider
+                %li= link_to "Dhokebaazs added by me", dhokebaazs_path
+                %li.devider
+                %li= link_to "Log out", destroy_user_session_path, method: :delete, class: 'page-scroll'
+          - else
+            %li= link_to "Login", new_user_session_path, class: 'page-scroll'
+          / li><a class="page-scroll" href="#contact" title="Have something to say to us?">Contact us</a></li>
+

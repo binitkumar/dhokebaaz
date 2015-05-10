@@ -1,0 +1,26 @@
+.wrapper.wrapper-content
+  .row.border-bottom.white-bg.page-heading
+    %h2 Login
+  .row
+    .col-md-8.col-md-offset-1
+      .ibox.float-e-margins
+        .ibox-title
+          %h5 Sign in       
+        .ibox-content
+          %h2 Log in
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .field
+              = f.label :login
+              %br/
+              = f.text_field :login, autofocus: true, class: 'form-control'
+            .field
+              = f.label :password
+              %br/
+              = f.password_field :password, autocomplete: "off", class: 'form-control'
+            - if devise_mapping.rememberable?
+              .field
+                = f.check_box :remember_me
+                = f.label :remember_me
+            .actions
+              = f.submit "Log in", class: 'btn btn-primary'
+          = render "devise/shared/links"

@@ -1,37 +1,36 @@
-%h1 Listing people
-%table
-  %thead
-    %tr
-      %th Story
-      %th Incident time
-      %th Dhokebaaz name
-      %th Address
-      %th Other details
-      %th Fb profile url
-      %th Post as anonymous
-      %th Name
-      %th Email
-      %th Name visible to public
-      %th Recive update on comments
-      %th Recive messages
-      %th{:colspan => "3"}
-  %tbody
-    - @people.each do |person|
-      %tr
-        %td= person.story
-        %td= person.incident_time
-        %td= person.dhokebaaz_name
-        %td= person.address
-        %td= person.other_details
-        %td= person.fb_profile_url
-        %td= person.post_as_anonymous
-        %td= person.name
-        %td= person.email
-        %td= person.name_visible_to_public
-        %td= person.recive_update_on_comments
-        %td= person.recive_messages
-        %td= link_to 'Show', person
-        %td= link_to 'Edit', edit_person_path(person)
-        %td= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Person', new_person_path
+.wrapper.wrapper-content
+  .row.border-bottom.white-bg.page-heading
+    %h2 Here is all dhokebaazs added by you
+  .row
+    .col-md-12.no-padding
+      .ibox.float-e-margins
+        .ibox-title
+          %h5 You have added..
+        .ibox-content
+          - @dhokebaazs.each do |dhokebaaz|
+            .row.just-bottom-line
+              .col-md-3
+                .thumbnail= link_to image_tag(dhokebaaz.profile_image.url, style: 'width: 250px; height: 150px'), dhokebaaz
+              .col-md-9
+                %h3= link_to dhokebaaz.full_name, dhokebaaz
+                .col-md-12.no-padding
+                  .col-md-3.no-padding
+                    %h5 City: #{dhokebaaz.city}
+                  .col-md-3.no-padding
+                    %h5 Zipcode: #{dhokebaaz.zipcode}
+                .col-md-12.no-padding
+                  .col-md-3.no-padding
+                    %h5 Like: 0
+                  .col-md-3.no-padding
+                    %h5 Loves: 123
+                .col-md-12.no-padding
+                  .col-md-3.no-padding
+                    %h5 Suggport to claim: 0
+                  .col-md-3.no-padding
+                    %h5 Comments: 123
+                - if current_user && current_user.dhokebaazs.include?(dhokebaaz)
+                  .col-md-12.no-padding
+                    .col-md-3.no-padding
+                      = link_to "Edit", edit_dhokebaaz_path(dhokebaaz), class: 'btn btn-warning'
+                    .col-md-3.no-padding
+                      = link_to "Delete", dhokebaaz, class: 'btn btn-danger', method: :delete, "data-confirm" => "Are you sure to remove this entry"

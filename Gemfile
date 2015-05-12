@@ -50,3 +50,4 @@ gem "recaptcha", :require => "recaptcha/rails"
 gem 'will_paginate'
 gem 'dusen'
 gem 'geocoder'
+gem 'friendly_id', '~> 5.1.0'

@@ -11,6 +11,16 @@ class Dhokebaaz < ActiveRecord::Base
 
   accepts_nested_attributes_for :proofs
 
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
+
+  def slug_candidates
+    [
+      [:dhokebaaz_name, :last_name],
+      [:dhokebaaz_name, :last_name, :address],
+      [:dhokebaaz_name, :last_name, :address, :city]
+    ]
+  end
   search_syntax do
     search_by :text do |scope, phrases|
       columns = [:dhokebaaz_name, :last_name, :address, :city, :zipcode]

@@ -22,6 +22,7 @@ class DhokebaazsController < ApplicationController
   # GET /people/1.json
   def show
     @comment = Comment.new
+    @title = "Details of #{@dhokebaaz.dhokebaaz_name} #{@dhokebaaz.last_name} #{@dhokebaaz.address} #{@dhokebaaz.city}"
   end
 
   # GET /people/new
@@ -80,7 +81,7 @@ class DhokebaazsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dhokebaaz
-      @dhokebaaz = Dhokebaaz.find(params[:id])
+      @dhokebaaz = Dhokebaaz.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

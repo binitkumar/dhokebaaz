@@ -11,6 +11,14 @@ class Dhokebaaz < ActiveRecord::Base
 
   accepts_nested_attributes_for :proofs
 
+  search_syntax do
+    search_by :text do |scope, phrases|
+      columns = [:dhokebaaz_name, :last_name, :address, :city, :zipcode]
+      scope.where_like(columns => phrases)
+    end
+  end
+
+
   def poster_name
     self.name_visible_to_public && !self.post_as_anonymous ? self.name : "Anonymous"
   end

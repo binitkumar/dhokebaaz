@@ -11,14 +11,14 @@
               %span.text-navy "#{params[:first_name]} #{params[:last_name]} from #{params[:city]}"
           %small Request time  (0.23 seconds)
           .search-form
-            = form_tag search_dhokebaazs_path do |f|
+            = form_tag search_dhokebaazs_path, method: :get do |f|
               .input-group
                 .col-md-3
                   %input.form-control.input-lg{:name => "first_name", :placeholder => "First name", :type => "text", value: params[:first_name]}/
                 .col-md-3
                   %input.form-control.input-lg{:name => "last_name", :placeholder => "Last name", :type => "text", value: params[:last_name] }/ 
                 .col-md-3
-                  %input.form-control.input-lg{:name => "city", :placeholder => "City", :type => "text", value: params[:city]}/
+                  %input.form-control.input-lg{:name => "city", :placeholder => "City or Zipcode", :type => "text", value: params[:city]}/
                 .col-md-3
                   .input-group-btn
                     %button.btn.btn-lg.btn-primary{:type => "submit"}
@@ -30,17 +30,14 @@
                 .ibox-content
                   - @dhokebaazs.each do |dhokebaaz|
                     = render "dhokebaaz", dhokebaaz: dhokebaaz
-                  = "Nobody added by you yet." if @dhokebaazs.length == 0
+                  = "Nobody result found." if @dhokebaazs.length == 0
           .text-center
             .btn-group
-              %button.btn.btn-white{:type => "button"}
-                %i.fa.fa-chevron-left
-              %button.btn.btn-white 1
-              %button.btn.btn-white.active 2
-              %button.btn.btn-white 3
-              %button.btn.btn-white 4
-              %button.btn.btn-white 5
-              %button.btn.btn-white 6
-              %button.btn.btn-white 7
-              %button.btn.btn-white{:type => "button"}
-                %i.fa.fa-chevron-right
+              - if !params[:page].nil? && 1 > params[:page].to_i
+                %button.btn.btn-white{:type => "button"}
+                  %i.fa.fa-chevron-left
+              - @dhokebaazs.total_pages.times do |num|
+                = link_to (num + 1), request.url , class: 'btn btn-white'
+              - if !params[:page].nil? && @dhokebaazs.total_pages < params[:page].to_i
+                %button.btn.btn-white{:type => "button"}
+                  %i.fa.fa-chevron-right

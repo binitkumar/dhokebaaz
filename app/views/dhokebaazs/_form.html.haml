@@ -71,7 +71,7 @@
     .form-group
       %label.col-lg-2.control-label Tag with type of cheating
       .col-lg-10
-        %p.form-control-static= f.select :tags, options_for_select(["First", "Second"]),{}, {class: 'chosen-select', multiple: 'multiple'}
+        %p.form-control-static= f.select :tags, options_for_select(@tags.collect(&:name)),{}, {class: 'chosen-select', multiple: 'multiple'}
         %span.help-block.m-b-none Add his cheating type here. It shall help others to filter out
   .row.bottom-line  
     %h5 Post it as anonymous

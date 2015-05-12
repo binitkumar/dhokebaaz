@@ -5999,7 +5999,8 @@ body.rtls.top-navigation .footer.fixed {
   background: #3a4459;
 }
 .skin-1 .nav > li > a {
-  color: #9ea6b9;
+  color: green !important;
+  font-weight: bold;
 }
 .skin-1 .nav > li.active > a {
   color: #fff;
@@ -6446,3 +6447,4 @@ body.skin-3 {
 .red{
   color: red;
 }
+.footer-block{padding: 0px 10px;}

@@ -776,18 +776,19 @@ fieldset[disabled] .btn-primary.active {
 .pace-inactive {
   display: none;
 }
-#team h1 {
+.team h1 {
     font-weight: bold;
     text-transform: uppercase;
 }
 
-#team p {
+.team p {
     color: black;
     font-size: 18px;
-		font-weight: bold;
+    font-weight: bold;
 }
 .bottom-line {
   padding-bottom: 25px;
   border-bottom: 1px dashed gray;
   padding-top: 10px;
 }
+.footer-block{padding: 0px 10px;}

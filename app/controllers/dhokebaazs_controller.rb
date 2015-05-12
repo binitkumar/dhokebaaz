@@ -4,7 +4,10 @@ class DhokebaazsController < ApplicationController
   layout 'page'
 
   def search
-    @dhokebaazs = Dhokebaaz.all
+    @dhokebaazs = Dhokebaaz.search("#{params[:first_name]} #{params[:last_name]} #{params[:zipcode]}").paginate(page: params[:page])
+
+    params[:page] = params[:page].nil? ? 1 : params[:page].to_i
+      
   end
 
   def index
@@ -20,10 +23,13 @@ class DhokebaazsController < ApplicationController
   # GET /people/new
   def new
     @dhokebaaz = Dhokebaaz.new
+  
+    @tags = Tag.all
   end
 
   # GET /people/1/edit
   def edit
+    @tags = Tag.all
   end
 
   # POST /people

@@ -47,3 +47,5 @@ gem 'devise'
 gem 'chosen-rails'
 gem 'shareable'
 gem "recaptcha", :require => "recaptcha/rails"
+gem 'will_paginate'
+gem 'dusen'

@@ -8,7 +8,10 @@
           - if params[:first_name] || params[:last_name] || params[:city]
             %h2
               #{@dhokebaazs.count} results found for:
-              %span.text-navy "#{params[:first_name]} #{params[:last_name]} from #{params[:city]}"
+              - if params[:city].to_s != ""
+                %span.text-navy "#{params[:first_name]} #{params[:last_name]} from #{params[:city]}"
+              - else
+                %span.text-navy "#{params[:first_name]} #{params[:last_name]}"
           %small Request time  (0.23 seconds)
           .search-form
             = form_tag search_dhokebaazs_path, method: :get do |f|
@@ -30,7 +33,10 @@
                 .ibox-content
                   - @dhokebaazs.each do |dhokebaaz|
                     = render "dhokebaaz", dhokebaaz: dhokebaaz
-                  = "Nobody result found." if @dhokebaazs.length == 0
+                  .text-center= "Nobody result found." if @dhokebaazs.length == 0
+                  - if params[:first_name].to_s != "" || params[:last_name].to_s != ""
+                    .jumbotron
+                      .text-center= link_to "Did #{params[:first_name]} #{params[:last_name]} has done anything wrong! Share with others now.", new_dhokebaaz_path, class: 'btn btn-primary center'
           .text-center
             .btn-group
               - if !params[:page].nil? && 1 > params[:page].to_i

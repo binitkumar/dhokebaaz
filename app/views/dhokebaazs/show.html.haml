@@ -12,9 +12,12 @@
           .ibox-content.profile-content
             %h4
               %strong= @dhokebaaz.dhokebaaz_name
+              .pull-right
+                = link_to "View FB Profile", @dhokebaaz.fb_profile_url, target: '_blank', class: 'btn btn-success' unless @dhokebaaz.fb_profile_url.to_s.blank?
             %p
               %i.fa.fa-map-marker
               = @dhokebaaz.address
+            %p= @dhokebaaz.other_details
             .row
               %h5 Tags:
               %ul.tag-list{:style => "padding: 0"}

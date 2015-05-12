@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :dhokebaazs
   has_many :comments
 
-  has_attached_file :profile_image
+  has_attached_file :profile_image, default_url: "profile_picture.png"
   validates_attachment_content_type :profile_image, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
   validates_acceptance_of :tos, :allow_nil => false, :accept => true, :on => :create
   attr_accessor :login
@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     :uniqueness => {
       :case_sensitive => false
     }
+
+  def email_required?
+    false
+  end
 
   def login=(login)
     @login = login

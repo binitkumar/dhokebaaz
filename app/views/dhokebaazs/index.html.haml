@@ -7,4 +7,4 @@
         .ibox-content
           - @dhokebaazs.each do |dhokebaaz|
             = render "dhokebaaz", dhokebaaz: dhokebaaz
-          = "Nobody added by you yet." if @dhokebaazs.length == 0
+          .text-center= "Nobody has been added by you yet." if @dhokebaazs.length == 0

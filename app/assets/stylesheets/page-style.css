@@ -6059,7 +6059,7 @@ body.skin-1 {
 }
 .skin-1 .navbar-default .nav > li > a:hover,
 .skin-1 .navbar-default .nav > li > a:focus {
-  background: #3a4459;
+  background: transparent;
   color: #fff;
 }
 .skin-1 .nav.nav-tabs > li.active > a {

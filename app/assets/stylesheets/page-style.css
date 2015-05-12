@@ -6446,3 +6446,6 @@ body.skin-3 {
   color: red;
 }
 .footer-block{padding: 0px 10px;}
+.form-control {
+  background: white !important;
+}

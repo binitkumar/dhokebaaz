@@ -791,3 +791,6 @@ fieldset[disabled] .btn-primary.active {
   padding-top: 10px;
 }
 .footer-block{padding: 0px 10px;}
+.form-control {
+  background: white !important;
+}

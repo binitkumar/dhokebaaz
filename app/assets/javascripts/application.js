@@ -18,6 +18,7 @@
 //= require bootstrap.min
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
+//= require classie
 //= require cbpAnimatedHeader
 //= require bootstrap-material-design
 //= require wow.min

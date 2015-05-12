@@ -34,7 +34,7 @@
                   - @dhokebaazs.each do |dhokebaaz|
                     = render "dhokebaaz", dhokebaaz: dhokebaaz
                   .text-center= "Nobody result found." if @dhokebaazs.length == 0
-                  - if params[:first_name].to_s != "" || params[:last_name].to_s != ""
+                  - if params[:first_name].to_s != "" || params[:last_name].to_s != "" && @dhokebaazs.length == 0
                     .jumbotron
                       .text-center= link_to "Did #{params[:first_name]} #{params[:last_name]} has done anything wrong! Share with others now.", new_dhokebaaz_path, class: 'btn btn-primary center'
           .text-center

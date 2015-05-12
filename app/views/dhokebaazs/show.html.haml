@@ -19,7 +19,7 @@
               = @dhokebaaz.address
             %p= @dhokebaaz.other_details
             .row
-              %h5 Tags:
+              /%h5 Tags:
               %ul.tag-list{:style => "padding: 0"}
                 - if @dhokebaaz.tags
                   - @dhokebaaz.tags.split(",").each do |tag| 
@@ -27,13 +27,13 @@
                       %a{:href => ""}
                         %i.fa.fa-tag
                         = tag
-            .row
-              %h5
-                Proofs
-              %p= "No proofs attached" if @dhokebaaz.proofs.length == 0
-              %ul
-                - @dhokebaaz.proofs.each do |prof|
-                  %li= link_to prof.detail, prof.content.url, target: '_blank'
+            /.row
+            /  %h5
+            /    Proofs
+            /  %p= "No proofs attached" if @dhokebaaz.proofs.length == 0
+            /  %ul
+            /    - @dhokebaaz.proofs.each do |prof|
+            /      %li= link_to prof.detail, prof.content.url, target: '_blank'
             /%h5
             /  Contact victim
             /  %h5

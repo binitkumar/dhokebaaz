@@ -88,18 +88,10 @@
               %dl.dl-horizontal
                 %dt Added on:
                 %dd= @dhokebaaz.created_at.strftime("%d/%m/%Y %H:%S")
-                /%dt Participants:
-                /%dd.project-people
-                /  %a{:href => "#"}
-                /    %img.img-circle{:alt => "image", :src => "/assets/a3.jpg"}/
-                /  %a{:href => "#"}
-                /    %img.img-circle{:alt => "image", :src => "/assets/a1.jpg"}/
-                /  %a{:href => "#"}
-                /    %img.img-circle{:alt => "image", :src => "/assets/a2.jpg"}/
-                /  %a{:href => "#"}
-                /    %img.img-circle{:alt => "image", :src => "/assets/a4.jpg"}/
-                /  %a{:href => "#"}
-                /    %img.img-circle{:alt => "image", :src => "/assets/a5.jpg"}/
+                %dt Support this claim:
+                %dd.project-people
+                  %button{class: 'btn btn-primary', title: "Do you agree with this claim? Support it with your comment.", href: "#support", "data-toggle" => "modal"}
+                    Support
     .col-md-8
       .ibox.float-e-margins
         .ibox-title
@@ -139,7 +131,7 @@
                       %br/
                       %small.text-muted= comment.created_at.strftime("%d/%m/%Y %H:%S")
                       %br/
-                      %p= comment.message.html_safe
+                      %p=simple_format comment.message
                       /.actions
                       /  %a.btn.btn-xs.btn-white
                       /    %i.fa.fa-thumbs-up
@@ -153,3 +145,4 @@
             /%button.btn.btn-primary.btn-block.m
             /  %i.fa.fa-arrow-down
             /  Show More
+= render "support"

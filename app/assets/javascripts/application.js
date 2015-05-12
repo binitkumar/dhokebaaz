@@ -16,7 +16,10 @@
 //= require pace.min
 //= reuqire plugins/toastr/toastr.min
 //= require bootstrap.min
+//= require bootstrap-modal
+//= require bootstrap-modalmanager
 //= require cbpAnimatedHeader
+//= require bootstrap-material-design
 //= require wow.min
 //= require inspinia
 //= require ckeditor-jquery

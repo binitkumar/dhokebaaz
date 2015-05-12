@@ -22,3 +22,4 @@
 //= require_tree ./ckeditor
 //= require jquery_nested_form
 //= require chosen-jquery
+//= require bootstrap-material-design

@@ -1,5 +1,4 @@
 class Dhokebaaz < ActiveRecord::Base
-
   has_many :proofs
   has_many :comments
   belongs_to :user
@@ -21,6 +20,7 @@ class Dhokebaaz < ActiveRecord::Base
       [:dhokebaaz_name, :last_name, :address, :city]
     ]
   end
+
   search_syntax do
     search_by :text do |scope, phrases|
       columns = [:dhokebaaz_name, :last_name, :address, :city, :zipcode]
@@ -30,7 +30,11 @@ class Dhokebaaz < ActiveRecord::Base
 
 
   def poster_name
-    self.name_visible_to_public && !self.post_as_anonymous ? self.name : "Anonymous"
+    if self.post_as_anonymous || self.user.nil?
+      "Anonymous"
+    else
+      self.user.username
+    end
   end
 
   def poster_image_url

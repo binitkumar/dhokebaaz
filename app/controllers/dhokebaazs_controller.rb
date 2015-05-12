@@ -45,7 +45,7 @@ class DhokebaazsController < ApplicationController
     @dhokebaaz.user_id = current_user.id if current_user
 
     respond_to do |format|
-      if @dhokebaaz.save && verify_recaptcha(:model => @dhokebaaz, :message => "Oh! It's error with reCAPTCHA!")
+      if verify_recaptcha(:model => @dhokebaaz, :message => "Oh! It's error with reCAPTCHA!") && @dhokebaaz.save
         format.html { redirect_to @dhokebaaz, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @dhokebaaz }
       else
@@ -59,7 +59,7 @@ class DhokebaazsController < ApplicationController
   # PATCH/PUT /people/1.json
   def update
     respond_to do |format|
-      if @dhokebaaz.update(dhokebaaz_params) && verify_recaptcha(:model => @dhokebaaz, :message => "Oh! It's error with reCAPTCHA!")
+      if verify_recaptcha(:model => @dhokebaaz, :message => "Oh! It's error with reCAPTCHA!") && @dhokebaaz.update(dhokebaaz_params)
         format.html { redirect_to @dhokebaaz, notice: 'Dhokebaaz was successfully updated.' }
         format.json { render :show, status: :ok, location: @dhokebaaz }
       else

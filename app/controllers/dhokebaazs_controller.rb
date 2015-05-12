@@ -4,7 +4,14 @@ class DhokebaazsController < ApplicationController
   layout 'page'
 
   def search
-    @dhokebaazs = Dhokebaaz.all
+    if params[:first_name] ||  params[:last_name] || params[:zipcode]
+      @dhokebaazs = Dhokebaaz.search("#{params[:first_name]} #{params[:last_name]} #{params[:zipcode]}").paginate(page: params[:page])
+    else
+      @dhokebaazs = Dhokebaaz.search(request.location.city).paginate(page: params[:page])
+    end
+
+    params[:page] = params[:page].nil? ? 1 : params[:page].to_i
+      
   end
 
   def index
@@ -14,26 +21,31 @@ class DhokebaazsController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
-    flash[:notice] = "let see.."
+    @comment = Comment.new
+    @title = "Dhokebaaz profile of #{@dhokebaaz.dhokebaaz_name} #{@dhokebaaz.last_name} #{@dhokebaaz.address} #{@dhokebaaz.city}"
   end
 
   # GET /people/new
   def new
     @dhokebaaz = Dhokebaaz.new
+  
+    @tags = Tag.all
   end
 
   # GET /people/1/edit
   def edit
+    @tags = Tag.all
   end
 
   # POST /people
   # POST /people.json
   def create
+    @tags = Tag.all
     @dhokebaaz = Dhokebaaz.new(dhokebaaz_params)
     @dhokebaaz.user_id = current_user.id if current_user
 
     respond_to do |format|
-      if @dhokebaaz.save
+      if verify_recaptcha(:model => @dhokebaaz, :message => "Oh! It's error with reCAPTCHA!") && @dhokebaaz.save
         format.html { redirect_to @dhokebaaz, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @dhokebaaz }
       else
@@ -47,7 +59,7 @@ class DhokebaazsController < ApplicationController
   # PATCH/PUT /people/1.json
   def update
     respond_to do |format|
-      if @dhokebaaz.update(dhokebaaz_params)
+      if verify_recaptcha(:model => @dhokebaaz, :message => "Oh! It's error with reCAPTCHA!") && @dhokebaaz.update(dhokebaaz_params)
         format.html { redirect_to @dhokebaaz, notice: 'Dhokebaaz was successfully updated.' }
         format.json { render :show, status: :ok, location: @dhokebaaz }
       else
@@ -62,7 +74,7 @@ class DhokebaazsController < ApplicationController
   def destroy
     @dhokebaaz.destroy
     respond_to do |format|
-      format.html { redirect_to people_url, notice: 'Dhokebaaz was successfully destroyed.' }
+      format.html { redirect_to dhokebaazs_url, notice: 'Dhokebaaz was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -70,7 +82,7 @@ class DhokebaazsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dhokebaaz
-      @dhokebaaz = Dhokebaaz.find(params[:id])
+      @dhokebaaz = Dhokebaaz.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,6 +1,6 @@
 .wrapper.wrapper-content
   .row.border-bottom.white-bg.page-heading
-    %h2 Dhokebaaz Profile
+    %h2 Profile of #{@dhokebaaz.dhokebaaz_name}
   .row.animated.fadeInRight
     .col-md-4
       .ibox.float-e-margins
@@ -12,9 +12,12 @@
           .ibox-content.profile-content
             %h4
               %strong= @dhokebaaz.dhokebaaz_name
+              .pull-right
+                = link_to "View FB Profile", @dhokebaaz.fb_profile_url, target: '_blank', class: 'btn btn-success' unless @dhokebaaz.fb_profile_url.to_s.blank?
             %p
               %i.fa.fa-map-marker
               = @dhokebaaz.address
+            %p= @dhokebaaz.other_details
             .row
               %h5 Tags:
               %ul.tag-list{:style => "padding: 0"}
@@ -44,7 +47,7 @@
         .ibox-title
           .pull-right= google_plus_button 
           .pull-right= twitter_button 
-          .pull-right= facebook_button 
+          .pull-right= facebook_button
           %h5 Details of #{@dhokebaaz.dhokebaaz_name}
         .ibox-content
           %div
@@ -85,18 +88,11 @@
               %dl.dl-horizontal
                 %dt Added on:
                 %dd= @dhokebaaz.created_at.strftime("%d/%m/%Y %H:%S")
-                /%dt Participants:
-                /%dd.project-people
-                /  %a{:href => "#"}
-                /    %img.img-circle{:alt => "image", :src => "/assets/a3.jpg"}/
-                /  %a{:href => "#"}
-                /    %img.img-circle{:alt => "image", :src => "/assets/a1.jpg"}/
-                /  %a{:href => "#"}
-                /    %img.img-circle{:alt => "image", :src => "/assets/a2.jpg"}/
-                /  %a{:href => "#"}
-                /    %img.img-circle{:alt => "image", :src => "/assets/a4.jpg"}/
-                /  %a{:href => "#"}
-                /    %img.img-circle{:alt => "image", :src => "/assets/a5.jpg"}/
+                %dt Support for this claim: 
+                %dd 
+                  #{@dhokebaaz.dhokebaaz_supports.count} people supported this yet.
+                  %button{class: 'btn btn-primary', title: "Do you agree with this claim? Support it with your comment.", href: "#support", "data-toggle" => "modal"}
+                    Support now
     .col-md-8
       .ibox.float-e-margins
         .ibox-title
@@ -110,9 +106,9 @@
                     = image_tag(current_user.profile_image.url, class: 'img-circle', alt: 'image')                  
                 .media-body
                   %h3 Comment:
-                  = form_for @dhokebaaz.comments.build do |f|
+                  = form_for @comment do |f|
                     = f.hidden_field :dhokebaaz_id, value: @dhokebaaz.id
-                    = f.text_area :message, class: 'form-control submit-on-enter', placeholder: 'Press enter to submit'
+                    = f.text_area :message, class: 'form-control', placeholder: 'Express your views'
                     %br/
                     - if current_user
                       Post as anonymas
@@ -120,6 +116,10 @@
                     - else  
                       %br/
                       Comment shall be posted as anonymas if you are not logged in. After logging in to your account you can post with your account or choose to post as anonymas.
+                    %br/
+                    = recaptcha_tags ajax: true
+                    %br/
+                    = f.submit "Post", class: 'btn btn-success'
               - @dhokebaaz.comments.each do |comment|
                 - if comment.id
                   .feed-element
@@ -132,7 +132,7 @@
                       %br/
                       %small.text-muted= comment.created_at.strftime("%d/%m/%Y %H:%S")
                       %br/
-                      %p= comment.message.html_safe
+                      %p=simple_format comment.message
                       /.actions
                       /  %a.btn.btn-xs.btn-white
                       /    %i.fa.fa-thumbs-up
@@ -146,3 +146,4 @@
             /%button.btn.btn-primary.btn-block.m
             /  %i.fa.fa-arrow-down
             /  Show More
+= render "support"

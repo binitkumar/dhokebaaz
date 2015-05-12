@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :dhokebaaz_supports
+
   devise_for :users
   resources :comments
   resources :dhokebaazs do
@@ -9,7 +11,8 @@ Rails.application.routes.draw do
   end
 
   get 'home/index'
-
+  get "terms_of_service", controller: "home", action: "terms_of_service"
+  get "privacy_policy", controller: "home", action: "privacy_policy"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

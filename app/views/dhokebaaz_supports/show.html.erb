@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @dhokebaaz_support.user %>
+</p>
+
+<p>
+  <strong>Ip address:</strong>
+  <%= @dhokebaaz_support.ip_address %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @dhokebaaz_support.message %>
+</p>
+
+<p>
+  <strong>Post as anonymous:</strong>
+  <%= @dhokebaaz_support.post_as_anonymous %>
+</p>
+
+<%= link_to 'Edit', edit_dhokebaaz_support_path(@dhokebaaz_support) %> |
+<%= link_to 'Back', dhokebaaz_supports_path %>

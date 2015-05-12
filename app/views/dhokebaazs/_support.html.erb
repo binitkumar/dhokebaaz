@@ -1,0 +1,22 @@
+<div id="support" class="modal fade" tabindex="-1">
+  <%= form_for(@dhokebaaz.dhokebaaz_supports.build) do |f| %>
+    <%= f.hidden_field :dhokebaaz_id, value: @dhokebaaz.id %>
+    <div class="modal-body">
+      <!--div class="field">
+        <%= f.label :message %><br>
+        <%= f.text_area :message %>
+      </div>
+      <div class="field">
+        <%= f.label :post_as_anonymous %><br>
+        <%= f.check_box :post_as_anonymous %>
+      </div-->
+      <h3>Would you like to support this claim?</h3>
+      <p> You can contribute more by sharing this page on facebook</p>
+      <%= facebook_button %>
+    </div>
+    <div class="modal-footer">
+      <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+      <%= f.submit "Support!", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

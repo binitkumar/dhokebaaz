@@ -1,0 +1,31 @@
+<h1>Listing dhokebaaz_supports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Ip address</th>
+      <th>Message</th>
+      <th>Post as anonymous</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dhokebaaz_supports.each do |dhokebaaz_support| %>
+      <tr>
+        <td><%= dhokebaaz_support.user %></td>
+        <td><%= dhokebaaz_support.ip_address %></td>
+        <td><%= dhokebaaz_support.message %></td>
+        <td><%= dhokebaaz_support.post_as_anonymous %></td>
+        <td><%= link_to 'Show', dhokebaaz_support %></td>
+        <td><%= link_to 'Edit', edit_dhokebaaz_support_path(dhokebaaz_support) %></td>
+        <td><%= link_to 'Destroy', dhokebaaz_support, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dhokebaaz support', new_dhokebaaz_support_path %>

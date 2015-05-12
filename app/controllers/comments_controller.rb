@@ -27,11 +27,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id if current_user
     respond_to do |format|
-      if @comment.save
+      if verify_recaptcha(:model => @dhokebaaz, :message => "Oh! It's error with reCAPTCHA!") && @comment.save
         format.html { redirect_to @comment.dhokebaaz, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new }
+        format.html { redirect_to :back, notice: 'Failed to add comment' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

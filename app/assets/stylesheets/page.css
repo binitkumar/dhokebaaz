@@ -14,6 +14,9 @@
  *= require animate.min
  *= require font-awesome/css/font-awesome
  *= require toastr.min
+ *= require bootstrap-modal-bs3patch
+ *= require bootstrap-modal
+ *= require bootstrap-material-design
  *= require page-style
  *= require chosen
  *= require_self

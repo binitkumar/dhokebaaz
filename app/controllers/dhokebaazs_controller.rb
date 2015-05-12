@@ -22,7 +22,7 @@ class DhokebaazsController < ApplicationController
   # GET /people/1.json
   def show
     @comment = Comment.new
-    @title = "Details of #{@dhokebaaz.dhokebaaz_name} #{@dhokebaaz.last_name} #{@dhokebaaz.address} #{@dhokebaaz.city}"
+    @title = "Dhokebaaz profile of #{@dhokebaaz.dhokebaaz_name} #{@dhokebaaz.last_name} #{@dhokebaaz.address} #{@dhokebaaz.city}"
   end
 
   # GET /people/new

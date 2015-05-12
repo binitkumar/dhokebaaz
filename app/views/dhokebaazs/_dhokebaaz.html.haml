@@ -11,16 +11,16 @@
         %h5 City: #{dhokebaaz.city}
       .col-md-3.no-padding
         %h5 Zipcode: #{dhokebaaz.zipcode}
+    /.col-md-12.no-padding
+    /  .col-md-3.no-padding
+    /    %h5 Like: 0
+    /  .col-md-3.no-padding
+    /    %h5 Loves: 123
     .col-md-12.no-padding
       .col-md-3.no-padding
-        %h5 Like: 0
+        %h5 Suggport to claim: #{dhokebaaz.dhokebaaz_supports.count}
       .col-md-3.no-padding
-        %h5 Loves: 123
-    .col-md-12.no-padding
-      .col-md-3.no-padding
-        %h5 Suggport to claim: 0
-      .col-md-3.no-padding
-        %h5 Comments: 123
+        %h5 Comments: #{dhokebaaz.comments.count}
     - if current_user && current_user.dhokebaazs.include?(dhokebaaz)
       .col-md-12.no-padding
         .col-md-3.no-padding

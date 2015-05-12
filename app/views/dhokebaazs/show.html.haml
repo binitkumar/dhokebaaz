@@ -21,11 +21,12 @@
             .row
               %h5 Tags:
               %ul.tag-list{:style => "padding: 0"}
-                - @dhokebaaz.tags.split(",").each do |tag| 
-                  %li
-                    %a{:href => ""}
-                      %i.fa.fa-tag
-                      = tag
+                - if @dhokebaaz.tags
+                  - @dhokebaaz.tags.split(",").each do |tag| 
+                    %li
+                      %a{:href => ""}
+                        %i.fa.fa-tag
+                        = tag
             .row
               %h5
                 Proofs

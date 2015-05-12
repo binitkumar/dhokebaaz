@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512163347) do
+ActiveRecord::Schema.define(version: 20150512210816) do
 
   create_table "comments", force: true do |t|
     t.text     "message"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20150512163347) do
     t.boolean  "post_as_anonymas"
     t.integer  "user_id"
   end
+
+  create_table "dhokebaaz_supports", force: true do |t|
+    t.integer  "dhokebaaz_id"
+    t.integer  "user_id"
+    t.string   "ip_address"
+    t.text     "message"
+    t.boolean  "post_as_anonymous"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "dhokebaaz_supports", ["dhokebaaz_id"], name: "index_dhokebaaz_supports_on_dhokebaaz_id", using: :btree
+  add_index "dhokebaaz_supports", ["user_id"], name: "index_dhokebaaz_supports_on_user_id", using: :btree
 
   create_table "dhokebaazs", force: true do |t|
     t.text     "story"

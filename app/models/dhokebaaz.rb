@@ -1,5 +1,6 @@
 class Dhokebaaz < ActiveRecord::Base
   has_many :proofs
+  has_many :dhokebaaz_supports
   has_many :comments
   belongs_to :user
 

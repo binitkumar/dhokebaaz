@@ -47,7 +47,7 @@
         .ibox-title
           .pull-right= google_plus_button 
           .pull-right= twitter_button 
-          .pull-right= facebook_button 
+          .pull-right= facebook_button
           %h5 Details of #{@dhokebaaz.dhokebaaz_name}
         .ibox-content
           %div
@@ -88,10 +88,11 @@
               %dl.dl-horizontal
                 %dt Added on:
                 %dd= @dhokebaaz.created_at.strftime("%d/%m/%Y %H:%S")
-                %dt Support this claim:
-                %dd.project-people
+                %dt Support for this claim: 
+                %dd 
+                  #{@dhokebaaz.dhokebaaz_supports.count} people supported this yet.
                   %button{class: 'btn btn-primary', title: "Do you agree with this claim? Support it with your comment.", href: "#support", "data-toggle" => "modal"}
-                    Support
+                    Support now
     .col-md-8
       .ibox.float-e-margins
         .ibox-title

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :dhokebaaz_supports
+
   devise_for :users
   resources :comments
   resources :dhokebaazs do

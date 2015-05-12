@@ -13,8 +13,8 @@ Shareable.configure do |config|
   ##facebook
   ###############
   config.app_id='262794053844528' # required if using facebook button!
-  #config.send= 'false'
-  #config.layout='' # 'standard', 'button_count', 'button' or 'box_count'. '' defaults to 'standard'.
+  config.send= 'true'
+  config.layout='button_count' # 'standard', 'button_count', 'button' or 'box_count'. '' defaults to 'standard'.
   #config.show_faces='' # 'true' or 'false'. '' defaults to 'false'. Don't set to 'true', if kid_directed_site is also 'true'.
   #config.action='' # 'like' or 'recommend'. '' defaults to 'like'.
   #config.font=''

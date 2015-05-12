@@ -72,6 +72,7 @@ GEM
     erubis (2.7.0)
     execjs (2.5.2)
     fssm (0.2.10)
+    geocoder (1.2.4)
     haml (4.0.6)
       tilt
     hike (1.2.3)
@@ -178,6 +179,7 @@ DEPENDENCIES
   devise
   dusen
   erb2haml
+  geocoder
   haml
   jbuilder (~> 2.0)
   jquery-rails

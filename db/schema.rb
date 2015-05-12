@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512111216) do
+ActiveRecord::Schema.define(version: 20150512135505) do
 
   create_table "comments", force: true do |t|
     t.text     "message"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20150512111216) do
     t.integer  "profile_image_file_size"
     t.datetime "profile_image_updated_at"
     t.string   "username"
+    t.boolean  "tos"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

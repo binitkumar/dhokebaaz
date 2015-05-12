@@ -4,8 +4,6 @@
   .row
     .col-md-8.col-md-offset-1
       .ibox.float-e-margins
-        .ibox-title
-          %h5 Sign in       
         .ibox-content
           %h2 Log in
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|

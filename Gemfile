@@ -49,3 +49,4 @@ gem 'shareable'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'will_paginate'
 gem 'dusen'
+gem 'geocoder'

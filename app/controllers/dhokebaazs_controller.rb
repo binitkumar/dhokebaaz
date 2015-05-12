@@ -4,7 +4,11 @@ class DhokebaazsController < ApplicationController
   layout 'page'
 
   def search
-    @dhokebaazs = Dhokebaaz.search("#{params[:first_name]} #{params[:last_name]} #{params[:zipcode]}").paginate(page: params[:page])
+    if params[:first_name] ||  params[:last_name] || params[:zipcode]
+      @dhokebaazs = Dhokebaaz.search("#{params[:first_name]} #{params[:last_name]} #{params[:zipcode]}").paginate(page: params[:page])
+    else
+      @dhokebaazs = Dhokebaaz.search(request.location.city).paginate(page: params[:page])
+    end
 
     params[:page] = params[:page].nil? ? 1 : params[:page].to_i
       

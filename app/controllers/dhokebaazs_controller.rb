@@ -91,6 +91,6 @@ class DhokebaazsController < ApplicationController
     end
 
     def set_tags
-      params[:dhokebaaz][:tags] = params[:dhokebaaz][:tags].join(",").gsub(/^,/, "")
+      params[:dhokebaaz][:tags] = params[:dhokebaaz][:tags].join(",").gsub(/^,/, "") if params[:dhokebaaz][:tags]
     end
 end
